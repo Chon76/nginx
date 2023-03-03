@@ -1,37 +1,275 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="light">
   <head>
-    <meta charset="utf-8" />
-    <title>NGINX on Railway</title>
-    <meta name="description" content="Choo Choo!" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <meta name="generator" content="Astro v2.0.16">
 
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Multi-ép</title>
+    <meta name="description" content="Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.">
 
-    <link rel="stylesheet" href="/styles.css?v=1.0" />
-  </head>
+    <!-- social media -->
+    <meta property="og:title" content="Astro">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Build fast websites, faster. Astro is a new kind of site builder for the modern web. Lightning-fast performance meets powerful developer experience.">
+    <meta property="og:image" content="https://astro-moon-landing.netlify.app/social.jpg">
+    <meta property="og:url" content="https://astro-moon-landing.netlify.app/">
+    <meta name="twitter:card" content="summary_large_image">
 
-  <body>
-    <main>
-      <img
-        src="https://railway.app/brand/logo-light.svg"
-        alt="Railway logo"
-        class="logo"
-      />
+    <!-- initialize theme -->
+    <script>
+      const themeSaved = localStorage.getItem("theme");
 
-      <h1>NGINX on Railway</h1>
+      if (themeSaved) {
+        document.documentElement.dataset.theme = themeSaved;
+      } else {
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        document.documentElement.dataset.theme = "light"; // TODO: use ternary for dark mode
+      }
 
-      <p>
-        Choo Choo! This is an example of an NGINX static site running on
-        Railway.
-        <a
-          href="https://github.com/railwayapp/starters/tree/master/examples/nginx"
-          >View source</a
-        >.
-      </p>
-    </main>
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (event) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.dataset.theme = event.matches
+              ? "dark"
+              : "light";
+          }
+        });
+    </script>
+  <link rel="stylesheet" href="/_astro/index.573d7619.css" /><script type="module" src="/_astro/hoisted.b9d77987.js"></script></head>
+  <body class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white">
+    <header id="page-header" class="absolute bottom-0 z-20 w-full items-center justify-between border-b border-transparent px-8 py-4 hidden sm:flex astro-HPNW4VWY">
+  <a id="largeNavLogo" class="flex items-center gap-3 invisible astro-HPNW4VWY" href="#">
+    <picture>
+	<source type="image/avif" srcset="/_astro/logo.81aac05c_Z12Iz9r.avif 55w" sizes="2.5rem"><source type="image/webp" srcset="/_astro/logo.81aac05c_ZjnKbF.webp 55w" sizes="2.5rem"><source type="image/png" srcset="/_astro/logo.81aac05c_ZP6osA.png 55w" sizes="2.5rem">
+	<img alt="logo" src="/_astro/logo.81aac05c_ZP6osA.png" loading="lazy" decoding="async" class="hidden sm:block astro-HPNW4VWY" id="logo">
+</picture>
+  </a>
+  <div class="astro-HPNW4VWY">
+    <div class="flex items-center gap-6 astro-HPNW4VWY">
+      <nav class="hidden sm:block astro-HPNW4VWY">
+        <ul class="flex items-center gap-6 astro-HPNW4VWY">
+          <li class="astro-HPNW4VWY">
+                <a class="text-sm astro-HPNW4VWY" href="#szolgaltatasaink">
+                  Szolgáltatásaink
+                </a>
+              </li><li class="astro-HPNW4VWY">
+                <a class="text-sm astro-HPNW4VWY" href="#referenciak">
+                  Referenciák
+                </a>
+              </li><li class="astro-HPNW4VWY">
+                <a class="text-sm astro-HPNW4VWY" href="#arajanlat">
+                  Árajánlat
+                </a>
+              </li>
+        </ul>
+      </nav>
+      <button id="open-nav-button" type="button" class="btn sm:hidden astro-HPNW4VWY" aria-label="Navigation">
+        <svg viewBox="0 0 24 24" class="h-8 astro-HPNW4VWY" astro-icon="mdi:menu"><path fill="currentColor" d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      </button>
+      <!-- <ThemeSwitcher /> -->
+    </div>
+    <div id="menu-modal" class="modal hidden astro-HPNW4VWY" aria-hidden="true">
+      <div class="fixed inset-0 bg-default px-8 py-4 text-default astro-HPNW4VWY">
+        <div class="space-y-4 astro-HPNW4VWY" role="dialog" aria-modal="true">
+          <header class="text-right astro-HPNW4VWY">
+            <button id="close-nav-button" type="button" class="btn astro-HPNW4VWY" aria-label="Close navigation">
+              <svg viewBox="0 0 24 24" class="h-8 astro-HPNW4VWY" astro-icon="mdi:close"><path fill="currentColor" d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+            </button>
+          </header>
+          <div class="flex justify-center astro-HPNW4VWY">
+            <picture>
+	<source type="image/avif" srcset="/_astro/logo.81aac05c_Z1ouvfD.avif 64w" sizes="4rem"><source type="image/webp" srcset="/_astro/logo.81aac05c_ZF9GhR.webp 64w" sizes="4rem"><source type="image/png" srcset="/_astro/logo.81aac05c_Z1OPzSc.png 64w" sizes="4rem">
+	<img alt="logo" src="/_astro/logo.81aac05c_Z1OPzSc.png" loading="lazy" decoding="async" class="h-16 astro-HPNW4VWY">
+</picture>
+          </div>
+          <nav class="astro-HPNW4VWY">
+            <ul class="flex flex-col astro-HPNW4VWY">
+              <li class="astro-HPNW4VWY">
+                    <a class="block py-4 text-center text-xl astro-HPNW4VWY" href="#szolgaltatasaink">
+                      Szolgáltatásaink
+                    </a>
+                  </li><li class="astro-HPNW4VWY">
+                    <a class="block py-4 text-center text-xl astro-HPNW4VWY" href="#referenciak">
+                      Referenciák
+                    </a>
+                  </li><li class="astro-HPNW4VWY">
+                    <a class="block py-4 text-center text-xl astro-HPNW4VWY" href="#arajanlat">
+                      Árajánlat
+                    </a>
+                  </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <script src="/script.js"></script>
-  </body>
-</html>
+
+
+<noscript>
+  <style>
+    #open-nav-button {
+      display: none;
+    }
+  </style>
+</noscript>
+    <section class="relative h-full bg-default">
+  <div class="relative grid h-full place-items-center sm:grid-cols-2">
+    <div class="w-2/3 max-w-lg  self-center sm:w-10/12 sm:self-auto sm:justify-self-center">
+      <picture>
+	<source type="image/avif" srcset="/_astro/logo.81aac05c_1JWCYE.avif 450w,/_astro/logo.81aac05c_1hY5a7.avif 800w" sizes="(min-width: 640px) 42vw, 67vw"><source type="image/webp" srcset="/_astro/logo.81aac05c_2tirWq.webp 450w,/_astro/logo.81aac05c_21jT7S.webp 800w" sizes="(min-width: 640px) 42vw, 67vw"><source type="image/png" srcset="/_astro/logo.81aac05c_1dtaQ2.png 450w,/_astro/logo.81aac05c_xxyct.png 800w" sizes="(min-width: 640px) 42vw, 67vw">
+	<img alt="logo" src="/_astro/logo.81aac05c_xxyct.png" loading="lazy" decoding="async">
+</picture>
+    </div>
+
+    <div class="flex flex-col gap-2 self-center p-4 text-center font-bold tracking-tighter md:text-lg lg:text-2xl sm:gap-4 sm:self-auto sm:justify-self-start">
+      <h2 class="">
+        Célunk, hogy a lehető <span class="text-primary">leggyorsabban</span>, mégis <span class="text-primary">tökéletes</span> minőségben végezzük el otthona, ingatlanja <span class="text-primary">felújítását</span>, vagy akár új otthona <span class="text-primary">megépítésé</span>,
+        mert számunkra <span class="text-primary">fontos</span> Ügyfeleink  <span class="text-primary">elégedettsége</span>.
+      </h2>
+      <h2 class="">
+        Keressen minket bizalommal, kérjen <span class="text-primary">ingyenes</span> felmérést és árajánlatot!
+      </h2>
+    </div>
+    <div class="absolute bottom-4 justify-center w-100 animate-pulse sm:hidden ">
+      <a id="down" href="#szolgaltatasaink">
+        <svg viewBox="0 0 24 24" class="h-12 " astro-icon="ic:sharp-keyboard-double-arrow-down"><path fill="currentColor" d="M18 6.41 16.59 5 12 9.58 7.41 5 6 6.41l6 6z"/><path fill="currentColor" d="m18 13-1.41-1.41L12 16.17l-4.59-4.58L6 13l6 6z"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+    <div class="space-y-24 px-8 py-32">
+      <section id="szolgaltatasaink" class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-center font-extrabold tracking-tight text-5xl sm:text-6xl">
+      Szolgáltatásaink
+    </h2>
+  </div>
+  <p class="max-w-3xl text-center font-extrabold text-2xl">
+    
+    Legyen szó akár részleges-. vagy teljes körű
+    <span class="text-primary">felújításról</span>,
+    <span class="text-primary">átalakításról</span> vagy
+    <span class="text-primary">építésről</span>, ránk számíthat!
+  
+  </p>
+  <div class="flex flex-col container space-y-2 divide-y-2 sm:divide-y-0">
+    <div class="text-left">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">BONTÁS</h1>
+          <p>Elbontjuk a szükségtelen falakat, felvéssük a burkolatot, vagy a teljes vakolatot, és a törmeléket is elszállítjuk, hogy a leg ideálisabb alapokkal és körülmények között kezdhessük el a lakásfelújítást.</p>
+        </div><div class="text-right">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">KŐMŰVES MUNKÁK</h1>
+          <p>Az új aljzatbetontól az új falak építésén át, teraszt, járdát, kerítést készítünk Önnek, ami csak szükséges a tökéletes végeredmény eléréséhez. van. Csapatunk évente több komplett ház építésén dolgozik, így ezt is bátran ránk bízhatja!</p>
+        </div><div class="text-left">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">GIPSZKARTONOZÁS</h1>
+          <p>lkészítjük álmai álmennyezetét, beépítjük tetőterét, de ha csak egyszerűen könnyűszerkezetes falakra van szüksége, csapatunkra akkor is számíthat!</p>
+        </div><div class="text-right">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">BURKOLÁS</h1>
+          <p>A szakszerű burkolás fontosságát nem kell hangsúlyoznunk, hiszen évekig helyt kell állnia. Burkolóink tökéletes munkát végeznek, így ha jól választott burkolatot, az akár több generációt is ki fog szolgálni.</p>
+        </div><div class="text-left">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">FESTÉS-MÁZOLÁS-TAPÉTÁZÁS</h1>
+          <p>A megfelelő falfelület előkészítése után segítünk a megfelelő színek, alapanyagok összeválogatásában is, hogy otthona az Önnek legmegfelelőbb hangulatot árassza.</p>
+        </div><div class="text-right">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">VILLANYSZERELÉS</h1>
+          <p>Segítünk Önnek átgondolni, hová milyen csatlakozók szükségesek, hogy a beköltözés után már sehol ne lógjanak elosztók és szükségtelen kábelek.</p>
+        </div><div class="text-left">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">NYÍLÁSZÁRÓ BEÉPÍTÉS ÉS CSERE</h1>
+          <p>Elöregedett ablakait, ajtóit cserélné? Vagy újépítésű házába építtetné be őket? Legyen szó fa, műanyag, fém nyílászáró vagy redőny, beépítéséről a tökéletes munkát garantáljuk!</p>
+        </div><div class="text-right">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">TETŐFEDÉS ÉS EGYÉB ÁCS MUNKÁK</h1>
+          <p>Új tető, vagy a régi cseréje sem akadály. Szakembereink mindkettőben jártasak! Ezenkívül fából bármit megvalósítunk Önnek: előtetőt, teraszt, galériát, lépcsőt és mindent, ami fa.</p>
+        </div><div class="text-left">
+          <h1 class="font-bold pt-2 sm:underline sm:underline-offset-4">SZIGETELÉS</h1>
+          <p>Legyen szó beltéri, tetőtéri vagy homlokzati szigetelésről, természetese, hogy ez is a korszerűsítés és a hatékonyság növelésének a része.</p>
+        </div>
+  </div>
+</section>
+      <section id="referenciak" class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-center font-extrabold tracking-tight text-5xl sm:text-6xl">
+      Referenciáink
+    </h2>
+  </div>
+  <p class="max-w-3xl text-center font-extrabold text-2xl">
+    
+  </p>
+  <div class="text-center text-sm">
+    Kövessen minket közöségi média felületeinken is, ahol nyomon követheti
+    munkáinkat, elkészült projektjeinket és aktuális szakmai információkat is
+    találhat.
+  </div><div class="block space-y-3 sm:gap-4 sm:flex">
+    <picture>
+	<source type="image/avif" srcset="/_astro/ref01.9011f606_1Kc2Sq.avif 450w,/_astro/ref01.9011f606_Uvsnh.avif 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/webp" srcset="/_astro/ref01.9011f606_2twQQc.webp 450w,/_astro/ref01.9011f606_1DQhl3.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/jpeg" srcset="/_astro/ref01.9011f606_2m8elh.jpg 450w,/_astro/ref01.9011f606_GqzVi.jpg 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw">
+	<img alt="logo" src="/_astro/ref01.9011f606_GqzVi.jpg" loading="lazy" decoding="async" id="logo">
+</picture>
+    <picture>
+	<source type="image/avif" srcset="/_astro/ref02.2e2ce241_1qynvu.avif 450w,/_astro/ref02.2e2ce241_ARN0l.avif 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/webp" srcset="/_astro/ref02.2e2ce241_29Tctg.webp 450w,/_astro/ref02.2e2ce241_1kdBX7.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/jpeg" srcset="/_astro/ref02.2e2ce241_ZqB3Am.jpg 450w,/_astro/ref02.2e2ce241_Z26iH0l.jpg 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw">
+	<img alt="logo" src="/_astro/ref02.2e2ce241_Z26iH0l.jpg" loading="lazy" decoding="async" id="logo">
+</picture>
+    <picture>
+	<source type="image/avif" srcset="/_astro/ref03.902ff718_2sPIXV.avif 450w,/_astro/ref03.902ff718_SajVE.avif 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/webp" srcset="/_astro/ref03.902ff718_Z1S0zRe.webp 450w,/_astro/ref03.902ff718_1Bv8Tq.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/jpeg" srcset="/_astro/ref03.902ff718_ZyyUjl.jpg 450w,/_astro/ref03.902ff718_20p6s0.jpg 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw">
+	<img alt="logo" src="/_astro/ref03.902ff718_20p6s0.jpg" loading="lazy" decoding="async" id="logo">
+</picture>
+    <picture>
+	<source type="image/avif" srcset="/_astro/ref04.31435df8_Z2pUt3h.avif 450w,/_astro/ref04.31435df8_sTrUo.avif 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/webp" srcset="/_astro/ref04.31435df8_Z1GzE5v.webp 450w,/_astro/ref04.31435df8_1cfgSa.webp 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"><source type="image/jpeg" srcset="/_astro/ref04.31435df8_ZSddID.jpg 450w,/_astro/ref04.31435df8_Z2qzaMY.jpg 800w" sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw">
+	<img alt="logo" src="/_astro/ref04.31435df8_Z2qzaMY.jpg" loading="lazy" decoding="async" id="logo">
+</picture>
+  </div>
+</section>
+      <section id="arajanlat" class="flex scroll-mt-24 flex-col items-center gap-4 space-y-8">
+  <div class="flex flex-col items-center gap-4">
+    
+    <h2 class="text-center font-extrabold tracking-tight text-5xl sm:text-6xl">
+      Árajánlat
+    </h2>
+  </div>
+  <p class="max-w-3xl text-center font-extrabold text-2xl">
+    
+  </p>
+  <form class="container grid space-y-2 max-w-3xl">
+
+  <label for="email" class="block">
+    <div>Email</div>
+    <input type="email" name="email" id="email" class="form-input rounded-md w-full">
+  </label>
+  <label for="message" class="block">
+    <div>Üzenet</div>
+    <textarea class="form-textarea rounded-md w-full"></textarea>
+  </label>
+
+  <button id="submit" class=" rounded bg-green-400 p-3 w-fit justify-self-end" type="submit" onclick="submit">
+    Küldés
+  </button>
+</form>
+</section>
+    </div>
+    <footer class="relative flex h-64 items-center justify-center border-default bg-default border-t">
+  <div class="">
+  <div>+36 (30) 555 7245</div>
+  <div>multiepkft@gmail.com</div>
+  <div class="flex justify-center">
+    <a href="https://www.facebook.com/profile.php?id=100086153959491">
+          <svg viewBox="0 0 24 24" i="true" class="h-12" astro-icon="mdi:facebook"><path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z"/></svg>
+        </a><a href="https://www.instagram.com/multiep.kft/">
+          <svg viewBox="0 0 24 24" i="true" class="h-12" astro-icon="mdi:instagram"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        </a>
+  </div>
+</div>
+</footer>
+  </body></html>
